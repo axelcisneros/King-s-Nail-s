@@ -1,0 +1,11 @@
+@font-face {
+  src: url(../vendor/fonts/DancingScript-Regular.ttf) format("truetype");
+  font-family: "DancingScript-Regular";
+  font-weight: normal;
+}
+
+@font-face {
+  src: url(../vendor/fonts/PermanentMarker-Regular.ttf) format("truetype");
+  font-family: "PermanentMarker-Regular";
+  font-weight: normal;
+}

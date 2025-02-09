@@ -1,0 +1,7 @@
+@import url("../src/assets/vendor/normalize.css");
+@import url("../src/assets/vendor/fonts.css");
+
+#root {
+    background-color: #242424;
+    height: 100vh;
+}
