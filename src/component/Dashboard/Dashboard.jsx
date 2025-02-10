@@ -18,6 +18,16 @@ function Dashboard () {
                     ))}
                 </ul>
             </div>
+            <div className="dashboard__slider">
+                <ul className="dashboard__slider-list">
+                    {sliderConfig.map((slider) => (
+                        <Slider
+                        key={slider.id}
+                        slider={slider}
+                        />
+                    ))}
+                </ul>
+            </div>
         </div>
     )
 }
