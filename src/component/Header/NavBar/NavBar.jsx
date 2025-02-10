@@ -8,8 +8,8 @@ function NavBar() {
   return (
     <nav className="nav">
       <NavLink to="/" className={customClassName}>Inicio</NavLink>
-      <NavLink to="/reviews" className={customClassName}>Trabajos</NavLink>
-      <NavLink to="/about-me" className={customClassName}>Costos</NavLink>
+      <NavLink to="/reviews" className={customClassName}>Reseñas</NavLink>
+      <NavLink to="/prices" className={customClassName}>Costos</NavLink>
       <NavLink to="/about-us" className={customClassName}>Sobre nosotros</NavLink>
     </nav>
   )
