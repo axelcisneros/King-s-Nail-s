@@ -5,9 +5,6 @@ function PricesCurse() {
                 Cursos en línea**
             </p>
             <p className="prices__paragraph">
-                de lunes a jueves
-            </p>
-            <p className="prices__paragraph">
                 $150.00
             </p>
             <img
