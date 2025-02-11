@@ -3,7 +3,7 @@
     align-items: center;
     text-align: center;
     justify-content: center;
-    min-height: calc(100vh - 210px);
+    min-height: calc(100vh - 110px);
 }
 
 .dashboard__title {
@@ -36,5 +36,7 @@
     55% { margin-left: -200%; }
     70% { margin-left: -200%;}
     75% { margin-left: -300%; }
-    100% { margin-left: -300%;}
+    90% { margin-left: -300%;}
+    95% { margin-left: -400%;}
+    100% { margin-left: -400%;}
 }

@@ -3,5 +3,8 @@
 
 #root {
     background-color: #242424;
-    height: 100vh;
+}
+
+body {
+    background-color: #242424;
 }
