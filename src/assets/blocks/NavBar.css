@@ -16,3 +16,7 @@
     pointer-events: none;  
     border-radius: 50%; 
 }
+
+.nav__link:hover {
+    filter: drop-shadow(0 1em 0 #646cffaa);
+}

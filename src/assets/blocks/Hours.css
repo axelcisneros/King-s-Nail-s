@@ -1,0 +1,25 @@
+.hours {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.hours__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hours__title {
+    margin: 5px 0;
+}
+
+.hours__list {
+    margin: 0;
+    padding: 0;
+}
+
+.hours__list-item {
+    list-style-type: none;
+}

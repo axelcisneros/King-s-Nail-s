@@ -9,8 +9,11 @@
 }
 
 .prices__title {
+    display: flex;
+    justify-content: center;
     font-size: 3em;
-    margin: 0;
+    margin: 10px 0 0;
+    height: 50px;
     grid-column: span 3;
 }
 

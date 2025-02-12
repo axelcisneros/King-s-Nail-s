@@ -1,0 +1,36 @@
+.contact {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 40%;    
+}
+
+.contact__list {
+    margin: 10px 0 0;
+    padding: 0;
+       
+}
+
+.contact__list-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;    
+    list-style-type: none;
+    margin: 0 0 10px;
+    gap: 10px;    
+}
+
+.contact__list-item a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #535bf2;
+    text-align: center;
+    gap: 10px;
+}
+
+.contact__list-item img {
+    width: 30px;
+}

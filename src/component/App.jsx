@@ -4,6 +4,9 @@ import PageNotFound from "./PageNotFound/PageNotFound";
 import Dashboard from "./Dashboard/Dashboard"
 import Reviews from "./Reviews/Reviews"
 import Prices from "./Prices/Prices"
+import AboutUs from "./AboutUs/AboutUs"
+import Hours from "./AboutUs/Hours/Hours"
+import Contact from "./AboutUs/Contact/Contact"
 import "@assets/blocks/page.css"
 
 function App() {
@@ -16,9 +19,10 @@ function App() {
          <Route path="/" element={<Dashboard />} />
          <Route path="/reviews" element={<Reviews />} />
         <Route path="/prices" element={<Prices />} />
-{/*         <Route path="/about-us" element={<AboutUs />} >
-          <Route path="contact" element={<Constact />} />
-        </Route> */}
+         <Route path="/about-us" element={<AboutUs />} >
+           <Route path="hours" element={<Hours />} />
+           <Route path="contact" element={<Contact />} />
+        </Route>
       </Routes>
     </div>
   )
