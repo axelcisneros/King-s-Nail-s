@@ -31,6 +31,10 @@
     gap: 10px;
 }
 
-.contact__list-item img {
+.contact__image {
     width: 30px;
+}
+
+.contact__logo-wp {
+    width: 100px;
 }
