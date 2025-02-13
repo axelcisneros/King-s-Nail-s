@@ -11,9 +11,9 @@
 .prices__title {
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 3em;
     margin: 10px 0 0;
-    height: 50px;
     grid-column: span 3;
 }
 

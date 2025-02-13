@@ -8,6 +8,14 @@
 
 .dashboard__title {
     font-size: 2.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard__title-link {
+    text-decoration: none;
+    color: #535bf2;
+    font-size: 30px;
 }
 
 .dashboard__slider {

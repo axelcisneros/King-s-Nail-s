@@ -1,0 +1,31 @@
+.jobs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: calc(100vh - 110px);
+}
+
+.jobs__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-size: 3em;
+}
+
+.jobs__gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 90%;
+    max-height: 440px;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.jobs__gallery-item {
+    width: 100%;
+}
+

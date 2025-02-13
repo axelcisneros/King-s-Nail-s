@@ -7,6 +7,8 @@ import Prices from "./Prices/Prices"
 import AboutUs from "./AboutUs/AboutUs"
 import Hours from "./AboutUs/Hours/Hours"
 import Contact from "./AboutUs/Contact/Contact"
+import Jobs from "./Jobs/Jobs";
+import { imagesUrl } from "@utils/imagesUrl";
 import "@assets/blocks/page.css"
 
 function App() {
@@ -17,8 +19,9 @@ function App() {
       <Routes>
         <Route path="*" element={<PageNotFound />} />
          <Route path="/" element={<Dashboard />} />
+         <Route path="/jobs" element={<Jobs images={imagesUrl}/>} />
          <Route path="/reviews" element={<Reviews />} />
-        <Route path="/prices" element={<Prices />} />
+         <Route path="/prices" element={<Prices />} />
          <Route path="/about-us" element={<AboutUs />} >
            <Route path="hours" element={<Hours />} />
            <Route path="contact" element={<Contact />} />
