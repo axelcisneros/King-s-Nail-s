@@ -13,6 +13,13 @@
     margin: 0;
 }
 
+.about-us__logo {
+    max-width: 200px;
+    max-height: 100px;
+    border-radius: 10%;
+    padding: 0;
+}
+
 .about-us__links, .about-us__erratas  {
     list-style-type: none;
     display: flex;
@@ -45,5 +52,51 @@
 
 .about-us__link:hover {
     filter: drop-shadow(0 0 1em #646cffaa);
+}
+
+@media screen and (min-width: 320px) and (max-width: 604px) {
+    .about-us {
+        justify-content: flex-start;
+    }
+    
+    .about-us__title {
+        flex-direction: column;
+        align-items: center;
+        font-size: 1em;
+    }
+    
+    .about-us__links, .about-us__erratas  {
+        font-size: 1em;
+        gap: 5px;
+    }
+    
+    .about-us__list {
+        padding: 0;
+    }
+    
+    .about-us__link {
+        padding: 0 5px;
+    }
+}
+
+@media screen and (min-width: 605px) and (max-width: 1140px) {
+    .about-us {
+        justify-content: flex-start;
+    }
+    
+    .about-us__title {
+        flex-direction: column;
+        align-items: center;
+        font-size: 2em;
+    }
+    
+    .about-us__links, .about-us__erratas  {
+        font-size: 1.3em;
+        gap: 20px;
+    }
+    
+    .about-us__list {
+        padding: 0;
+    }
 }
 

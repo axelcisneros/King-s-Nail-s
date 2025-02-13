@@ -10,6 +10,7 @@
     font-size: 2.5em;
     display: flex;
     flex-direction: column;
+    max-width: 600px;
 }
 
 .dashboard__title-link {
@@ -20,6 +21,7 @@
 
 .dashboard__slider {
     width: 300px;
+    max-height: 300px;
     margin: 0 10px;
     overflow: hidden;
 }
@@ -28,8 +30,13 @@
     display: flex;
     list-style-type: none;
     padding: 0;
+    margin: 0;
     width: 400%;
     animation: slide 20s infinite alternate ease-in-out;
+}
+
+.dashboard__slider-item {
+    max-height: 300px;
 }
 
 .dashboard__slider-image {
@@ -47,4 +54,41 @@
     90% { margin-left: -300%;}
     95% { margin-left: -400%;}
     100% { margin-left: -400%;}
+}
+
+@media screen and (min-width: 320px) and (max-width: 604px) {
+    .dashboard {
+        display: grid;
+        grid-gap: 10px;
+    }
+
+    .dashboard__title {
+        font-size: 1.5em;
+        margin: 0;
+    }
+    
+    .dashboard__title-link {
+        font-size: 20px;
+    }
+    .dashboard__slider {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 605px) and (max-width: 1140px) {
+    .dashboard {
+        display: grid;
+        grid-template-columns: repeat(2, 300px);
+        grid-template-rows: 110px 300px;
+        grid-gap: 0 10px;
+    }
+
+    .dashboard__title {
+        grid-column: span 3;
+        margin: auto;
+    }
+
+    .dashboard__slider {
+        margin: auto;
+    }
 }

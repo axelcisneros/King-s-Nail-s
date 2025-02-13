@@ -1,9 +1,10 @@
 .header {
-    max-height: 100px;
+    max-height: 300px;
     border-bottom: 1px solid #535bf2;
     display: grid;
     grid-template-columns: 100px repeat(2, 1fr);
     align-items: center;
+    justify-content: center;
     font-size: 3em;
     line-height: 1.1;
 }
@@ -11,3 +12,24 @@
 .header__title {
     margin: auto;
 }
+
+@media screen and (min-width: 320px) and (max-width: 604px) {
+    .header {
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px repeat(2, 1fr);
+        font-size: 1.5em;
+        line-height: 1;
+    }
+  }
+
+  @media screen and (min-width: 605px) and (max-width: 1140px) {
+    .header {
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px repeat(2, 1fr);
+        font-size: 2em;
+        line-height: 1;
+    }
+    .header__title {
+        padding: 10px 0;
+    }
+  }

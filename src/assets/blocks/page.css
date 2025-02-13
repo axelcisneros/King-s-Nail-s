@@ -4,6 +4,8 @@
     color-scheme: light dark;
     color: #535bf2;
     font-synthesis: none;
+    position: relative;
+    z-index: 2;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

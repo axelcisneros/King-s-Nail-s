@@ -7,7 +7,7 @@ function AboutUs() {
     <div className="about-us">
       <h2 className="about-us__title">
         Somos King's Nail's desde junio del 2020 consintiendo a nuestros clientes con los mejores servicios de manicura y pedicura.
-        <Logo />
+        <Logo className="about-us__logo"/>
       </h2>
       <ul className="about-us__erratas">
         <li className="about-us__list">

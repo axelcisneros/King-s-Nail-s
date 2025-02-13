@@ -5,7 +5,7 @@ import "@assets/blocks/Header.css"
 function Header() {
   return (
     <header className="header">
-      <Logo />
+      <Logo className="logo"/>
       <h1 className="header__title">King's Nail's</h1>
       <NavBar />
     </header>

@@ -2,9 +2,6 @@
 @import url("../src/assets/vendor/fonts.css");
 
 #root {
-    background-color: #242424;
-}
-
-body {
-    background-color: #242424;
+    background-color: #e5b8c2;
+    margin: auto;
 }

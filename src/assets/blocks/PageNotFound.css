@@ -16,7 +16,7 @@
   }
   
   .not-found__link {
-    width: 10%;
+    max-width: 200px;
     display: flex;
     flex-direction: column;
     font-size: 20px;
@@ -30,3 +30,35 @@
   .not-found__link:hover {
     filter: drop-shadow(0 0 1em #646cffaa);
   }
+
+@media screen and (min-width: 320px) and (max-width: 604px) {
+  .not-found {
+    justify-content: flex-start;
+    }
+
+    .not-found__title {
+      font-size: 1.5em;
+    }
+  
+    .not-found__text {
+      font-size: 1em;
+    }
+
+    .not-found__link {
+      max-width: 150px;
+    }
+}
+
+@media screen and (min-width: 605px) and (max-width: 1140px) {
+  .not-found {
+    justify-content: flex-start;
+    }
+
+    .not-found__title {
+      font-size: 2em;
+    }
+  
+    .not-found__text {
+      font-size: 1.3em;
+    }
+}

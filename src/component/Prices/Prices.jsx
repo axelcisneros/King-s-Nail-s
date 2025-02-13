@@ -9,7 +9,7 @@ function Prices() {
         <div className="prices">
             <h2 className="prices__title">
                 Precios, desde*
-                <Logo />
+                <Logo className="prices__logo"/>
             </h2>
             <PricesUl item={prices} />
             <PricesCurse  />

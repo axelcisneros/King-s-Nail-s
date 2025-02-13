@@ -20,3 +20,11 @@
 .nav__link:hover {
     filter: drop-shadow(0 1em 0 #646cffaa);
 }
+
+@media screen and (min-width: 320px) and (max-width: 604px) {
+    .nav__link {
+        font-size: 15px;
+        line-height: 20px;
+        padding: 0 10px;
+    }
+}

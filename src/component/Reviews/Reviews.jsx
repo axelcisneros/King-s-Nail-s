@@ -10,7 +10,7 @@ function Reviews() {
             title="Reviews"
             src="https://widget.taggbox.com/2152510"
             />
-            <Logo />
+            <Logo className="reviews__logo"/>
         </div>
     )
 }
