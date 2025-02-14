@@ -63,15 +63,15 @@
     }
 
     .dashboard__title {
-        font-size: 1.5em;
+        font-size: 2em;
         margin: 0;
     }
-    
+
     .dashboard__title-link {
-        font-size: 20px;
+        font-size: 25px;
     }
     .dashboard__slider {
-        margin: 0;
+        margin: auto;
     }
 }
 

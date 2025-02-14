@@ -38,15 +38,9 @@
 
 @media screen and (min-width: 320px) and (max-width: 604px) {
     .jobs__title {
-        font-size: 2em;
+        font-size: 2.5em;
     }
     .jobs__gallery {
         gap: 5px;
-    }
-}
-
-@media screen and (min-width: 605px) and (max-width: 1140px) {
-    .jobs__title {
-        font-size: 2.5em;
     }
 }

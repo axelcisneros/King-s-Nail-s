@@ -63,7 +63,7 @@
     .about-us__title {
         flex-direction: column;
         align-items: center;
-        font-size: 1em;
+        font-size: 1.5em;
     }
 
     .about-us__links, .about-us__erratas  {

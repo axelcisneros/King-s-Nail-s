@@ -79,15 +79,15 @@
 
     .prices__title {
         grid-column: 1 / 2;
-        font-size: 2em;
+        font-size: 2.5em;
     }
-    
+
     .prices__contents {
         font-size: 1em;
     }
-    
-    .prices__curse {
-        font-size: 1.9em;  
+
+    .prices__image {
+        max-width: 200px;
     }
 }
 
@@ -100,16 +100,12 @@
     .prices__title {
         font-size: 2.5em;
     }
-    
+
     .prices__contents {
         font-size: 15px;
     }
 
-    .prices__curse {
-        font-size: 1.5em;    
-    }
-
     .prices__image {
-        max-width: 80%;
+        max-width: 50%;
     }
 }

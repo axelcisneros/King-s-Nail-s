@@ -29,11 +29,7 @@
         flex-direction: column;
         justify-content: flex-start;
     }
-    
-    .reviews__title {
-        font-size: 1.5em;
-    }
-    
+
     .reviews__frame {
         width: 90%;
         height: 370px;
@@ -45,11 +41,7 @@
         flex-direction: column;
         justify-content: flex-start;
     }
-    
-    .reviews__title {
-        font-size: 1.9em;
-    }
-    
+
     .reviews__frame {
         width: 60%;
         height: 350px;

@@ -8,7 +8,7 @@ function Dashboard () {
     return(
         <div className="dashboard">
             <h2 className="dashboard__title">
-                👼CONCIENTE TUS UÑAS👼
+                👼CONSIENTE TUS UÑAS👼
                 <Link
                 className="dashboard__title-link"
                 to="/jobs">
