@@ -19,6 +19,12 @@ function AboutUs() {
         <li className="about-us__list">
           ***No se cuenta con envios, preguntar al cotizar
         </li>
+        <li className="about-us__list">
+          ***Al aceptar la cotización, se requiere el 10% de anticipo
+        </li>
+        <li className="about-us__list">
+          ***Se aceptan transferencias bancarias y pagos en efectivo
+        </li>
       </ul>
       <ul className="about-us__links">
         <li className="about-us__link">
