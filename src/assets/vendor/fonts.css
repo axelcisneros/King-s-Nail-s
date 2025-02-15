@@ -9,3 +9,21 @@
   font-family: "PermanentMarker-Regular";
   font-weight: normal;
 }
+
+@font-face {
+  src: url(../vendor/fonts/ConcertOne-Regular.ttf) format("truetype");
+  font-family: "ConcertOne-Regular";
+  font-weight: normal;
+}
+
+@font-face {
+  src: url(../vendor/fonts/Lobster-Regular.ttf) format("truetype");
+  font-family: "Lobster-Regular";
+  font-weight: normal;
+}
+
+@font-face {
+  src: url(../vendor/fonts/Sigmar-Regular.ttf) format("truetype");
+  font-family: "Sigmar-Regular";
+  font-weight: normal;
+}
