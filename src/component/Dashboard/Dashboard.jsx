@@ -12,7 +12,7 @@ function Dashboard () {
                 <Link
                 className="dashboard__title-link"
                 to="/jobs">
-                    💅Ver galeria de trabajos💅
+                    💅Ver galeria de trabajos aqui💅
                 </Link>
             </h2>
             <SliderContent config={sliderConfig}/>
