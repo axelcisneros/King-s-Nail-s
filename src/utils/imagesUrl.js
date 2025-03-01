@@ -1,5 +1,5 @@
 const imagesUrl = [
-    "./public/fotos/works1.jpg",
+    "../public/fotos/works1.jpg",
     "public/fotos/works2.jpg",
     "public/fotos/works3.jpg",
     "public/fotos/works4.jpg",
