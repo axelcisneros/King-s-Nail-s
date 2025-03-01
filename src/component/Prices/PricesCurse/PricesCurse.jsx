@@ -1,3 +1,5 @@
+import kit from '../../../fotos/Kit-inicio.jpg';
+
 function PricesCurse() {
     return (
       <div className="prices__curse">
@@ -9,7 +11,7 @@ function PricesCurse() {
       </p>
       <img
       className="prices__image"
-      src='../public/fotos/Kit-inicio.jpg'
+      src={kit}
       alt=""
       />
       </div>
