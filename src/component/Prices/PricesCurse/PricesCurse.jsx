@@ -1,4 +1,4 @@
-import kit from '/fotos/Kit-inicio.jpg';
+import kit from '/Kit-inicio.jpg';
 
 function PricesCurse() {
     return (
