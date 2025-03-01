@@ -38,8 +38,6 @@ function App() {
          images={imagesUrl}
          popup={popup}/>}
          />
-
-console.log(imagesUrl);
          <Route path="/reviews" element={<Reviews />} />
          <Route path="/prices" element={<Prices />} />
          <Route path="/about-us" element={<AboutUs />} >
