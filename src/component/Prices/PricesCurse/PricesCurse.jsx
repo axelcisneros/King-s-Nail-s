@@ -9,7 +9,7 @@ function PricesCurse() {
             </p>
             <img
             className="prices__image"
-            src="src/assets/fotos/Kit-inicio.jpg"
+            src="../../assets/fotos/Kit-inicio.jpg"
             alt=""
             />
         </div>
