@@ -1,6 +1,6 @@
 const imagesUrl = [
-    "assets/images/works1.jpg",
-    "assets/images/works2.jpg",
+  new URL('/src/assets/images/works1.jpg', import.meta.url).href,
+  new URL('/src/assets/images/works2.jpg', import.meta.url).href,
     "assets/images/works3.jpg",
     "assets/images/works4.jpg",
     "assets/images/works5.jpg",
