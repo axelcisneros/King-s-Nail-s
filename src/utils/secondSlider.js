@@ -1,8 +1,8 @@
-import works69 from "@assets/fotos/works69.jpg";
-import works65 from "@assets/fotos/works65.jpg";
-import works66 from "@assets/fotos/works66.jpg";
-import works67 from "@assets/fotos/works67.jpg";
-import works68 from "@assets/fotos/works68.jpg";
+import works69 from "@assets/images/works69.jpg";
+import works65 from "@assets/images/works65.jpg";
+import works66 from "@assets/images/works66.jpg";
+import works67 from "@assets/images/works67.jpg";
+import works68 from "@assets/images/works68.jpg";
 
 const secondSlider = [
     {
