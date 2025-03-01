@@ -1,8 +1,8 @@
 const imagesUrl = [
-    "src/assets/fotos/works1.jpg",
-    "src/assets/fotos/works2.jpg",
-    "src/assets/fotos/works3.jpg",
-    "src/assets/fotos/works4.jpg",
+    "public/fotos/works1.jpg",
+    "public/fotos/works2.jpg",
+    "public/fotos/works3.jpg",
+    "public/fotos/works4.jpg",
     "src/assets/fotos/works5.jpg",
     "src/assets/fotos/works6.jpg",
     "src/assets/fotos/works7.jpg",
