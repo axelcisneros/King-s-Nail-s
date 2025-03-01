@@ -22,7 +22,7 @@ function Jobs(props) {
                     key={index}
                     className="jobs__gallery-item"
                     src={src}
-                    alt=""
+                    alt={`Trabajo ${index + 1}`}
                     onClick={() => handleCardClick(src)}
                     />
                 ))}
