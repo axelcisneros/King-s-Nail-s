@@ -16,4 +16,11 @@ export default defineConfig({
     '@component': path.resolve(__dirname, 'src/component'),
   },
 },
+build: {
+  rollupOptions: {
+    output: {
+      assetFileNames: 'assets/[name].[hash].[ext]'
+    }
+  }
+},
 });

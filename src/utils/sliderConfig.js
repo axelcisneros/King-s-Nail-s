@@ -7,28 +7,28 @@ import works72 from "@assets/images/works72.jpg";
 const sliderConfig = [
     {
         id: "1",
-        link: { kit }
+        link: kit
     },
 
     {
         id: "2",
-        link: "@assets/images/works64.jpg"
+        link: works64
     },
 
     {
         id: "3",
-        link: "@assets/images/works71.jpg"
+        link: works71
     },
 
     {
         id: "4",
-        link: "@assets/images/works70.jpg"
+        link: works70
     },
 
     {
         id: "5",
-        link: "@assets/images/works72.jpg"
+        link: works72
     }
-]
+];
 
 export { sliderConfig };
