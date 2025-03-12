@@ -122,6 +122,10 @@ const imagesUrl = [
   new URL('/src/assets/images/works121.jpg', import.meta.url).href,
   new URL('/src/assets/images/works122.jpg', import.meta.url).href,
   new URL('/src/assets/images/works123.jpg', import.meta.url).href,
+  new URL('/src/assets/images/works124.jpg', import.meta.url).href,
+  new URL('/src/assets/images/works125.jpg', import.meta.url).href,
+  new URL('/src/assets/images/works126.jpg', import.meta.url).href,
+  new URL('/src/assets/images/works127.jpg', import.meta.url).href,
 ];
 
 export { imagesUrl };
