@@ -30,10 +30,36 @@
     max-height: 430px;
     overflow: auto;
     scroll-snap-type: y mandatory;
+    --sb-track-color: #ffffff;
+    --sb-thumb-color: #535bf2;
+    --sb-size: 11px;
+}
+
+.jobs__gallery::-webkit-scrollbar {
+  width: var(--sb-size)
+}
+
+.jobs__gallerydy::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 29px;
+}
+
+.jobs__gallery::-webkit-scrollbar-thumb {
+  background: var(--sb-thumb-color);
+  border-radius: 29px;
+  border: 1px solid #ff6767;
+}
+
+@supports not selector(::-webkit-scrollbar) {
+  .jobs__gallery {
+    scrollbar-color: var(--sb-thumb-color)
+                     var(--sb-track-color);
+  }
 }
 
 .jobs__gallery-item {
     width: 100%;
+    height: 100%;
 }
 
 @media screen and (min-width: 320px) and (max-width: 604px) {
