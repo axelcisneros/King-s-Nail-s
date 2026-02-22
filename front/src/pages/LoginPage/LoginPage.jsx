@@ -144,12 +144,12 @@ const LoginPage = () => {
 
         <div className={styles.socialLogin}>
           <a
-            href={`/api/users/google`}
+            href={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}/api/users/google`}
             className={`${styles.socialButton} ${styles.googleButton}`}
             onClick={(e) => {
               if (localStorage.getItem('legalAccepted') !== 'true') {
                 e.preventDefault();
-                setPendingAction(() => () => window.location.href = `/api/users/google`);
+                setPendingAction(() => () => window.location.href = `${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}/api/users/google`);
                 setShowLegal(true);
               }
             }}
@@ -157,12 +157,12 @@ const LoginPage = () => {
             Continuar con Google
           </a>
           <a
-            href={`/api/users/facebook`}
+            href={`${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}/api/users/facebook`}
             className={`${styles.socialButton} ${styles.facebookButton}`}
             onClick={(e) => {
               if (localStorage.getItem('legalAccepted') !== 'true') {
                 e.preventDefault();
-                setPendingAction(() => () => window.location.href = `/api/users/facebook`);
+                setPendingAction(() => () => window.location.href = `${import.meta.env.VITE_API_BASE_URL.replace('/api', '')}/api/users/facebook`);
                 setShowLegal(true);
               }
             }}
