@@ -40,6 +40,7 @@ Kings Nails es una aplicación web moderna y fácil de usar diseñada para que l
 ### Características Técnicas Implementadas
 
 * **Autenticación JWT:** Flujo completo de registro, login y logout con tokens JWT almacenados en `localStorage`.
+* **Recuperación de Contraseña:** Flujo completo de "Olvidé mi contraseña" y "Restablecer contraseña" con validación de tokens y confirmación de contraseña en el registro.
 * **Autenticación Social (OAuth):** Integración con el backend para inicio de sesión con Google y Facebook.
 * **Rutas Protegidas:** Implementación de rutas privadas para usuarios autenticados (`/profile`) y rutas de administrador (`/admin`).
 * **Subida de Archivos:** Manejo de `FormData` para la subida de imágenes tanto en el perfil del usuario como en el panel de administración.
@@ -61,29 +62,43 @@ Kings Nails es una aplicación web moderna y fácil de usar diseñada para que l
 
 ### Instalación y Puesta en Marcha
 
-1.**Clonar el repositorio:**
+1. **Clonar el repositorio:**
+
     ```bash
     git clone <URL_DEL_REPOSITORIO>
     cd Kings-Nails-Front
     ```
 
-2.**Instalar dependencias:**
+2. **Instalar dependencias:**
+
     ```bash
     pnpm install
     ```
 
-3.**Configurar variables de entorno:**
+3. **Configurar variables de entorno:**
     Crea un archivo `.env` en la raíz del proyecto y añade la URL de tu backend.
+
     ```env
     # .env
     VITE_API_BASE_URL=http://localhost:5000/api
+    # En Vercel, esta variable debe apuntar a la URL de tu backend desplegado
+    # Ejemplo: VITE_API_BASE_URL=https://king-s-nail-s-back.vercel.app/api
     ```
 
-4.**Ejecutar el servidor de desarrollo:**
+4. **Ejecutar el servidor de desarrollo:**
     La aplicación estará disponible en `http://localhost:3000` (o el puerto que indique Vite).
+
     ```bash
     pnpm run dev
     ```
+
+### Despliegue en Vercel
+
+Este frontend está optimizado para desplegarse en Vercel.
+
+-Al importar el proyecto en Vercel, asegúrate de establecer el **Root Directory** como `Kings-Nails-Front`.
+-Vercel detectará automáticamente que es un proyecto de Vite y configurará los comandos de build.
+-No olvides añadir la variable de entorno `VITE_API_BASE_URL` en el panel de Vercel apuntando a tu backend en producción.
 
 ### Scripts Disponibles
 
@@ -98,8 +113,7 @@ En el `package.json`, encontrarás los siguientes scripts:
 
 La estructura de carpetas sigue las mejores prácticas para aplicaciones React escalables.
 
-``
-src
+```src
 ├── components/   # Componentes reutilizables (Button, Modal, Carousel...)
 ├── config/       # Configuración (instancia de Axios)
 ├── context/      # Contexto de React (AuthContext)
@@ -110,7 +124,7 @@ src
 ├── styles/       # Estilos globales y variables CSS
 ├── App.jsx       # Componente raíz de la aplicación
 └── main.jsx      # Punto de entrada de la aplicación
-``
+```
 
 ## 📜 Flujo de Aceptación Legal
 
@@ -193,7 +207,7 @@ La rotación, retención y palabras clave (`LOG_HIGHLIGHTS`) se configuran en el
 ## 🧩 Componentes / Módulos Añadidos o Extendidos
 
 | Componente / Módulo | Tipo | Descripción |
-|---------------------|------|-------------|
+| ------------------- | ---- | ----------- |
 | `LegalModal` | UI | Modal para visualizar y aceptar Términos y Privacidad. |
 | `ConfirmToast` | UI | Toast interactivo que solicita acción del usuario ante nuevas versiones. |
 | `AuthProvider` | Context | Lógica de comparación de versiones, manejo de `pendingAction`, disparo de logs. |
@@ -261,7 +275,7 @@ VITE_API_BASE_URL=http://localhost:5000/api
 ### Componentes
 
 | Componente | Descripción |
-|------------|-------------|
+| ---------- | ----------- |
 | `ForgotPasswordPage` | Solicitud de recuperación con validación de email |
 | `ResetPasswordPage` | Cambio de contraseña con token, validaciones y login automático |
 | `RegisterPage` | Actualizado con confirmación de contraseña |

@@ -37,8 +37,9 @@ Este repositorio ha incorporado nuevas funcionalidades clave recientemente:
 - Flujo versionado de aceptación legal (`TERMS_VERSION`, `PRIVACY_VERSION`) con almacenamiento de `legalAcceptedAt`, `termsVersion`, `privacyVersion` por usuario.
 - Endpoint de re-aceptación: `POST /api/users/legal/accept` protegido.
 - Asignación automática de rol `admin` al primer usuario (incluye OAuth Google/Facebook).
-- Sistema de logging multi-nivel con rotación y retención (`logs/good.log`, `fail.log`, `error.log`, `highlight.log`).
-- Destacado de palabras clave configurables (`LOG_HIGHLIGHTS`) y limpieza automática de archivos rotados antiguos.
+- **Logging en MongoDB**: Sistema de logging multi-nivel (`GOOD`, `FAIL`, `ERROR`, `WARN`, `INFO`) almacenado en base de datos con rotación automática (TTL de 30 días).
+- Destacado de palabras clave configurables (`LOG_HIGHLIGHTS`).
+- **Despliegue Serverless**: Adaptación completa para despliegue en Vercel (`vercel.json` y exportación de la app Express).
 
 ### Frontend
 

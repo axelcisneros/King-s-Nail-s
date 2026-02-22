@@ -1,27 +1,17 @@
-# 👑 Kings Nails - Backend
+# Kings Nails - Backend
 
-## Logging
+## Logging (MongoDB)
 
-El sistema de logging escribe en la carpeta `logs/` los siguientes archivos:
+El sistema de logging ahora almacena todos los eventos directamente en la base de datos MongoDB (colección `logs`), lo que lo hace compatible con entornos Serverless como Vercel.
 
-- `good.log`: eventos exitosos (registro, login correcto, aceptación legal).
-- `fail.log`: fallos de validación, intentos de login fallidos.
-- `error.log`: errores de servidor capturados por el middleware.
-- `highlight.log`: duplicado de cualquier línea que contenga palabras clave configuradas.
-
-Rotación automática: cuando un archivo supera `LOG_MAX_SIZE` (por defecto 5MB) se renombra añadiendo timestamp y se crea uno nuevo.
-
-Palabras clave destacadas: definir en `.env` la variable `LOG_HIGHLIGHTS` separada por comas (ej: `LOG_HIGHLIGHTS=LEGAL,SECURITY,PAYMENT`). Si una línea contiene alguna palabra (en mensaje o meta), se agrega el campo `highlights` y se copia a `highlight.log`.
-
-Retención automática: los archivos rotados con timestamp más antiguos que `LOG_RETENTION_DAYS` (por defecto 21) se eliminan en cada ciclo de limpieza.
+- **Niveles:** `GOOD`, `FAIL`, `ERROR`, `WARN`, `INFO`.
+- **Rotación automática:** Los logs se eliminan automáticamente después de 30 días gracias a un índice TTL (`expires: '30d'`) en el esquema de Mongoose.
+- **Palabras clave destacadas:** Definir en `.env` la variable `LOG_HIGHLIGHTS` separada por comas (ej: `LOG_HIGHLIGHTS=LEGAL,SECURITY,PAYMENT`). Si una línea contiene alguna palabra, se agrega el campo `highlights` al documento en la base de datos.
 
 Variables de entorno relevantes:
 
 ```bash
-LOG_MAX_SIZE=5242880          # Tamaño máximo antes de rotar (bytes)
 LOG_HIGHLIGHTS=LEGAL,SECURITY,PAYMENT  # Palabras clave a detectar
-LOG_RETENTION_DAYS=21         # Días a conservar archivos rotados
-LOG_CLEAN_INTERVAL_MS=86400000 # Frecuencia limpieza (ms, default 24h)
 ```
 
 ## Uso en backend
@@ -46,7 +36,48 @@ Bienvenido al "cerebro" de Kings Nails. Este es el proyecto de backend que da vi
 
 ---
 
-## 📖 Tabla de Contenidos
+## Despliegue en Vercel (Serverless)
+
+Este backend está adaptado para ejecutarse como **Serverless Functions** en Vercel.
+
+- El archivo `app.js` exporta la aplicación (`module.exports = app`) en lugar de iniciar el servidor con `app.listen()` cuando está en producción.
+- Incluye un archivo `vercel.json` que enruta todas las peticiones a `app.js` usando el entorno `@vercel/node`.
+
+---
+
+## Variables de Entorno Requeridas
+
+Para que el backend funcione correctamente (tanto en local como en Vercel), necesitas configurar las siguientes variables en tu archivo `.env` o en el panel de Vercel:
+
+```bash
+# Servidor
+PORT=5000
+NODE_ENV=development # o 'production' en Vercel
+
+# Base de Datos
+MONGO_URI=mongodb+srv://<usuario>:<password>@cluster.mongodb.net/kingsnails
+
+# Autenticación JWT
+JWT_SECRET=tu_secreto_super_seguro
+JWT_EXPIRE=30d
+
+# URLs del Frontend (CORS y Emails)
+FRONTEND_URL=https://king-s-nail-s.vercel.app
+
+# Configuración de Email (Nodemailer)
+EMAIL_USER=tu_correo@gmail.com
+EMAIL_PASS=tu_contraseña_de_aplicacion
+
+# OAuth (Opcional)
+GOOGLE_CLIENT_ID=tu_google_client_id
+GOOGLE_CLIENT_SECRET=tu_google_client_secret
+FACEBOOK_APP_ID=tu_facebook_app_id
+FACEBOOK_APP_SECRET=tu_facebook_app_secret
+```
+
+---
+
+## Tabla de Contenidos
 
 - [🌍 Visión General](#-visión-general)
 - [✨ Funcionalidades Clave](#-funcionalidades-clave)
@@ -157,24 +188,24 @@ Sigue estos pasos para levantar el servidor en tu entorno local.
 
 Para que el proyecto funcione, tu archivo `.env` debe contener las siguientes variables:
 
-| Variable                | Descripción                                                                       | Ejemplo                                     |
-| ----------------------- | --------------------------------------------------------------------------------- | ------------------------------------------- |
-| `PORT`                  | El puerto en el que correrá el servidor.                                          | `5000`                                      |
-| `NODE_ENV`              | El entorno de la aplicación.                                                      | `development` o `production`                |
-| `MONGO_URI`             | La cadena de conexión a tu base de datos MongoDB.                                 | `mongodb://127.0.0.1:27017/kings-nails`     |
-| `JWT_SECRET`            | Una cadena secreta larga y aleatoria para firmar los tokens.                      | `unasecretamuylargayaleatoria`              |
-| `FRONTEND_URL`          | La URL base de tu aplicación frontend (para redirecciones de OAuth).              | `http://localhost:5173`                     |
-| `GOOGLE_CLIENT_ID`      | El ID de Cliente de tu app en Google Cloud Console.                               | `xxxx.apps.googleusercontent.com`           |
-| `GOOGLE_CLIENT_SECRET`  | El Secreto de Cliente de tu app en Google Cloud Console.                          | `GOCSPX-xxxx`                               |
-| `FACEBOOK_APP_ID`       | El ID de tu App en Meta for Developers.                                           | `1234567890`                                |
-| `FACEBOOK_APP_SECRET`   | La Clave Secreta de tu App en Meta for Developers.                                | `abcdef123456`                              |
-| `CLOUDINARY_CLOUD_NAME` | El nombre de tu "Cloud" en Cloudinary.                                            | `ejemplo-cloud`                             |
-| `CLOUDINARY_API_KEY`    | La clave API de tu cuenta de Cloudinary.                                          | `123456789012345`                           |
-| `CLOUDINARY_API_SECRET` | El secreto de la API de tu cuenta de Cloudinary.                                  | `abcdefg-hijklmnopqrstuv`                   |
-| `EMAIL_SERVICE`         | El servicio de correo a utilizar (ej. 'hotmail', 'outlook').                      | `hotmail`                                   |
-| `EMAIL_USER`            | El correo electrónico desde el que se enviarán las notificaciones.                | `tu_correo@hotmail.com`                     |
-| `EMAIL_PASS`            | La contraseña de tu correo electrónico (o contraseña de aplicación si tienes 2FA). | `tu_contraseña_de_hotmail`                  |
-| `ADMIN_EMAIL`           | El correo de la administradora para recibir notificaciones.                       | `admin@ejemplo.com`                         |
+| Variable                | Descripción                                                                         | Ejemplo                                     |
+| ----------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------- |
+| `PORT`                  | El puerto en el que correrá el servidor.                                            | `5000`                                      |
+| `NODE_ENV`              | El entorno de la aplicación.                                                        | `development` o `production`                |
+| `MONGO_URI`             | La cadena de conexión a tu base de datos MongoDB.                                   | `mongodb://127.0.0.1:27017/kings-nails`     |
+| `JWT_SECRET`            | Una cadena secreta larga y aleatoria para firmar los tokens.                        | `unasecretamuylargayaleatoria`              |
+| `FRONTEND_URL`          | La URL base de tu aplicación frontend (para redirecciones de OAuth).                | `http://localhost:5173`                     |
+| `GOOGLE_CLIENT_ID`      | El ID de Cliente de tu app en Google Cloud Console.                                 | `xxxx.apps.googleusercontent.com`           |
+| `GOOGLE_CLIENT_SECRET`  | El Secreto de Cliente de tu app en Google Cloud Console.                            | `GOCSPX-xxxx`                               |
+| `FACEBOOK_APP_ID`       | El ID de tu App en Meta for Developers.                                             | `1234567890`                                |
+| `FACEBOOK_APP_SECRET`   | La Clave Secreta de tu App en Meta for Developers.                                  | `abcdef123456`                              |
+| `CLOUDINARY_CLOUD_NAME` | El nombre de tu "Cloud" en Cloudinary.                                              | `ejemplo-cloud`                             |
+| `CLOUDINARY_API_KEY`    | La clave API de tu cuenta de Cloudinary.                                            | `123456789012345`                           |
+| `CLOUDINARY_API_SECRET` | El secreto de la API de tu cuenta de Cloudinary.                                    | `abcdefg-hijklmnopqrstuv`                   |
+| `EMAIL_SERVICE`         | El servicio de correo a utilizar (ej. 'hotmail', 'outlook').                        | `hotmail`                                   |
+| `EMAIL_USER`            | El correo electrónico desde el que se enviarán las notificaciones.                  | `tu_correo@hotmail.com`                     |
+| `EMAIL_PASS`            | La contraseña de tu correo electrónico (o contraseña de aplicación si tienes 2FA).  | `tu_contraseña_de_hotmail`                  |
+| `ADMIN_EMAIL`           | El correo de la administradora para recibir notificaciones.                         | `admin@ejemplo.com`                         |
 
 ---
 
@@ -188,58 +219,58 @@ A continuación se detallan las rutas disponibles en la API.
 
 ### Autenticación (`/api/users`)
 
-| Método | Ruta                 | Descripción                        | Acceso  |
-| ------ | -------------------- | ---------------------------------- | ------- |
-| `POST` | `/register`          | Registrar un nuevo usuario.        | Público |
-| `POST` | `/login`             | Iniciar sesión con email/pass.     | Público |
-| `GET`  | `/profile`           | Obtener perfil del usuario.        | Privado |
-| `PUT`  | `/profile`           | Actualizar perfil del usuario.     | Privado |
-| `DELETE`| `/profile`          | Eliminar perfil del usuario.       | Privado |
-| `GET`  | `/google`            | Iniciar login con Google.          | Público |
-| `GET`  | `/google/callback`   | Callback de Google.                | Público |
-| `GET`  | `/facebook`          | Iniciar login con Facebook.        | Público |
-| `GET`  | `/facebook/callback` | Callback de Facebook.              | Público |
-| `POST` | `/forgot-password`   | Solicitar recuperación de contraseña. | Público |
-| `POST` | `/reset-password/:token` | Restablecer contraseña con token. | Público |
+| Método  | Ruta                     | Descripción                           | Acceso  |
+| ------- | ------------------------ | ------------------------------------- | ------- |
+| `POST`  | `/register`              | Registrar un nuevo usuario.           | Público |
+| `POST`  | `/login`                 | Iniciar sesión con email/pass.        | Público |
+| `GET`   | `/profile`               | Obtener perfil del usuario.           | Privado |
+| `PUT`   | `/profile`               | Actualizar perfil del usuario.        | Privado |
+| `DELETE`| `/profile`               | Eliminar perfil del usuario.          | Privado |
+| `GET`   | `/google`                | Iniciar login con Google.             | Público |
+| `GET`   | `/google/callback`       | Callback de Google.                   | Público |
+| `GET`   | `/facebook`              | Iniciar login con Facebook.           | Público |
+| `GET`   | `/facebook/callback`     | Callback de Facebook.                 | Público |
+| `POST`  | `/forgot-password`       | Solicitar recuperación de contraseña. | Público |
+| `POST`  | `/reset-password/:token` | Restablecer contraseña con token.     | Público |
 
 ### Citas (`/api/appointments`)
 
-| Método | Ruta                 | Descripción                    | Acceso  |
-| ------ | -------------------- | ------------------------------ | ------- |
-| `POST` | `/`                  | Crear una nueva cita.          | Privado |
-| `GET`  | `/`                  | Obtener todas las citas.       | Admin   |
-| `GET`  | `/my`                | Obtener mis citas.             | Privado |
-| `PUT`  | `/:id`               | Actualizar una cita específica. | Admin   |
-| `DELETE`| `/:id`              | Eliminar una cita específica.   | Admin   |
-| `PUT`  | `/my/:id/cancel`     | Cliente cancela su propia cita.| Privado |
+| Método  | Ruta                 | Descripción                     | Acceso  |
+| ------- | -------------------- | ------------------------------- | ------- |
+| `POST`  | `/`                  | Crear una nueva cita.           | Privado |
+| `GET`   | `/`                  | Obtener todas las citas.        | Admin   |
+| `GET`   | `/my`                | Obtener mis citas.              | Privado |
+| `PUT`   | `/:id`               | Actualizar una cita específica. | Admin   |
+| `DELETE`| `/:id`               | Eliminar una cita específica.   | Admin   |
+| `PUT`   | `/my/:id/cancel`     | Cliente cancela su propia cita. | Privado |
 
 ### Galería (`/api/gallery`)
 
-| Método | Ruta      | Descripción                         | Acceso  |
-| ------ | --------- | ----------------------------------- | ------- |
-| `GET`  | `/`       | Obtener imágenes de la galería.     | Público |
-| `POST` | `/`       | Añadir una imagen a la galería.     | Admin   |
-| `PUT`  | `/:id`    | Actualizar una imagen específica.   | Admin   |
-| `DELETE`| `/:id`   | Eliminar una imagen específica.    | Admin   |
+| Método  | Ruta      | Descripción                         | Acceso  |
+| ------- | --------- | ----------------------------------- | ------- |
+| `GET`   | `/`       | Obtener imágenes de la galería.     | Público |
+| `POST`  | `/`       | Añadir una imagen a la galería.     | Admin   |
+| `PUT`   | `/:id`    | Actualizar una imagen específica.   | Admin   |
+| `DELETE`| `/:id`    | Eliminar una imagen específica.     | Admin   |
 
 ### Diseños de Usuario (`/api/designs`)
 
-| Método | Ruta      | Descripción                              | Acceso  |
-| ------ | --------- | ---------------------------------------- | ------- |
-| `GET`  | `/`       | Obtener mis diseños de inspiración.      | Privado |
-| `POST` | `/`       | Subir un nuevo diseño de inspiración.    | Privado |
-| `DELETE`| `/:id`   | Eliminar un diseño de inspiración.       | Privado |
-| `GET`  | `/all`    | Obtener todos los diseños de los clientes.| Admin   |
+| Método  | Ruta   | Descripción                               | Acceso  |
+| ------- | ------ | ----------------------------------------- | ------- |
+| `GET`   | `/`    | Obtener mis diseños de inspiración.       | Privado |
+| `POST`  | `/`    | Subir un nuevo diseño de inspiración.     | Privado |
+| `DELETE`| `/:id` | Eliminar un diseño de inspiración.        | Privado |
+| `GET`   | `/all` | Obtener todos los diseños de los clientes.| Admin   |
 
 ### Reseñas (`/api/reviews`)
 
-| Método | Ruta                 | Descripción                    | Acceso  |
-| ------ | -------------------- | ------------------------------ | ------- |
-| `GET`  | `/`                  | Obtener reseñas aprobadas.     | Público |
-| `POST` | `/`                  | Crear una nueva reseña.        | Privado |
-| `GET`  | `/all`               | Obtener todas las reseñas.     | Admin   |
-| `PUT`  | `/:id/approve`       | Aprobar una reseña.            | Admin   |
-| `DELETE`| `/:id`              | Eliminar una reseña.           | Admin   |
+| Método  | Ruta                 | Descripción                    | Acceso  |
+| ------- | -------------------- | ------------------------------ | ------- |
+| `GET`   | `/`                  | Obtener reseñas aprobadas.     | Público |
+| `POST`  | `/`                  | Crear una nueva reseña.        | Privado |
+| `GET`   | `/all`               | Obtener todas las reseñas.     | Admin   |
+| `PUT`   | `/:id/approve`       | Aprobar una reseña.            | Admin   |
+| `DELETE`| `/:id`               | Eliminar una reseña.           | Admin   |
 
 ---
 
