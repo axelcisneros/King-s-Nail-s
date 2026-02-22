@@ -1,0 +1,204 @@
+.card {
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.details p {
+  margin-bottom: 0.5rem;
+}
+
+.designPreviewSection {
+  margin-top: 1rem;
+}
+
+.quoteSection {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px dashed var(--border-color);
+  background-color: #f9fafb;
+}
+
+.quoteHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.quoteTitle {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.quoteBody p {
+  margin-bottom: 0.35rem;
+}
+
+.quoteBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.quoteBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background-color: #6b7280;
+}
+
+.quote_requested {
+  background-color: #3b82f6;
+}
+
+.quote_quoted {
+  background-color: #10b981;
+}
+
+.quote_accepted {
+  background-color: #16a34a;
+}
+
+.quote_declined {
+  background-color: #ef4444;
+}
+
+.quote_cancelled {
+  background-color: #9ca3af;
+}
+
+.mutedText {
+  color: #6b7280;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.designPreviewGrid {
+  margin-top: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0.5rem;
+}
+
+.designPreviewItem {
+  display: block;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.designPreviewItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.designPreviewItem img {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  display: block;
+}
+
+.designPlaceholder {
+  display: inline-block;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background-color: #f3f4f6;
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+.statusSection {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.status {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  color: #fff;
+}
+
+.pending {
+  background-color: #f59e0b; /* Amber */
+}
+
+.confirmed {
+  background-color: #10b981; /* Emerald */
+}
+
+.completed {
+  background-color: #3b82f6; /* Blue */
+}
+
+.cancelled {
+  background-color: #6b7280; /* Gray */
+}
+
+.rescheduleButton {
+  background-color: #f59e0b; /* Orange/Amber */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+}
+
+.rescheduleButton:hover {
+  background-color: #d97706; /* Darker Orange */
+}
+
+.cancelButton {
+  background-color: #ef4444; /* Red */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+}
+
+.cancelButton:hover {
+  background-color: #dc2626; /* Darker Red */
+}
+
+.reviewButton {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.2s ease;
+}
+
+.reviewButton:hover {
+  background-color: #4349d1;
+}

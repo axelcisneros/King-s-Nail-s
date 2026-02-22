@@ -1,0 +1,137 @@
+@font-face {
+  font-family: 'Concert One';
+  src: url('./assets/fonts/ConcertOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Variables de color para usar en toda la aplicación */
+:root {
+  --primary-color: #ff85a2;   /* Un rosa amigable para la marca */
+  --secondary-color: #fde4e8; /* Un rosa muy claro para fondos */
+  --accent-color: #535bf2;    /* El color que pediste para enlaces/acentos */
+  --text-color: #333333;      /* Color de texto principal, legible */
+  --background-color: #ffffff;
+  --border-color: #dddddd;
+  --brand-gradient: linear-gradient(90deg, rgba(255, 133, 162, 1) 0%, rgba(83, 91, 242, 1) 100%);
+  --surface-gradient: linear-gradient(135deg, rgba(255, 133, 162, 0.18) 0%, rgba(83, 91, 242, 0.2) 100%);
+  --surface-gradient-strong: linear-gradient(135deg, rgba(255, 133, 162, 0.32) 0%, rgba(83, 91, 242, 0.34) 100%);
+  --text-gradient: linear-gradient(90deg, rgba(255, 133, 162, 1) 0%, rgba(83, 91, 242, 1) 100%);
+  /* Alturas usadas por header/footer fijos. Ajusta si cambias el CSS del header/footer */
+  --header-height: 70px;
+  --footer-height: 60px;
+  --max-width: 1600px;
+}
+
+/* Variables responsive para tablet y móvil */
+@media (max-width: 999px) {
+  :root {
+    --header-height: 60px;
+    --footer-height: 45px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 45px;
+    --footer-height: 35px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --header-height: 40px;
+    --footer-height: 35px;
+  }
+}
+
+/* Reseteo y estilos base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Concert One', sans-serif;
+  background: var(--surface-gradient-strong);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+[data-gradient-surface] {
+  background: var(--surface-gradient);
+  border-radius: 28px;
+  box-shadow: 0 35px 80px -50px rgba(83, 91, 242, 0.65);
+}
+
+[data-gradient-text] :is(h1, h2, h3, h4, h5, h6,
+  p, span, li, label, strong, em, small, b, i,
+  th, td, caption, blockquote, figcaption) {
+  background-image: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-gradient-text] [data-emoji] {
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  color: initial !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+[data-gradient-text] :is(a):not(.cardCta):not(.cta):not(.linkButton):not(.btn):not(.submitButton):not([data-gradient-button="true"]) {
+  background-image: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-gradient-text] :is(input, textarea, select) {
+  color: var(--accent-color);
+  background-image: none;
+  background-color: #dddddd;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+}
+
+[data-gradient-text] :is(button, .btn, .cta, .linkButton, .cardCta, .submitButton, [data-gradient-button="true"]) {
+  background-image: var(--brand-gradient) !important;
+  color: #ffffff !important;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 12px 30px -12px rgba(83, 91, 242, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+[data-gradient-text] :is(button, .btn, .cta, .linkButton, .cardCta, .submitButton, [data-gradient-button="true"]):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px -15px rgba(83, 91, 242, 0.6);
+}
+
+[data-gradient-text] :is(button, .btn, .cta, .linkButton, .cardCta, .submitButton, [data-gradient-button="true"]) * {
+  color: #ffffff !important;
+  background-image: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+}

@@ -1,0 +1,132 @@
+.sidebar {
+  width: 180px;
+  background-color: #1f2937; /* Gris oscuro */
+  color: #d1d5db; /* Gris claro para el texto */
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  transition: transform 0.3s ease;
+}
+
+
+/* Botón hamburguesa - oculto por defecto */
+.hamburgerBtn {
+  display: none;
+  position: fixed;
+  top: 40px; /* Más arriba para no tapar logout */
+  right: 8px; /* Más pegado al borde */
+  z-index: 1200; /* Por encima del header */
+  background: linear-gradient(135deg, #ff6b9d, #4285f4); /* Gradiente como en la imagen */
+  border: none;
+  border-radius: 50%; /* Circular como en la segunda imagen */
+  padding: 10px;
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hamburgerBtn:hover {
+  background: linear-gradient(135deg, #e85a8c, #3b82f6); /* Gradiente más oscuro en hover */
+  transform: scale(1.05); /* Efecto de crecimiento */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hamburgerBtn span {
+  display: block;
+  height: 2px;
+  width: 20px;
+  background-color: #ffffff; /* Líneas blancas para contraste */
+  border-radius: 2px;
+  transition: 0.3s;
+  margin: 2px 0;
+}
+
+/* Overlay para cerrar en móvil */
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Responsive: pantallas menores a 1000px */
+@media (max-width: 999px) {
+  .hamburgerBtn {
+    display: flex;
+  }
+
+  .overlay {
+    display: none; /* Solo se muestra cuando el sidebar está expandido */
+  }
+
+  .sidebar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    height: calc(100vh - var(--header-height) - var(--footer-height));
+    width: 220px;
+    z-index: 1000;
+    transform: translateX(-100%); /* Oculto por defecto */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.expanded {
+    transform: translateX(0);
+  }
+
+  .overlay.show {
+    display: block;
+  }
+}
+
+.header {
+  padding: 0.5rem 0;
+  text-align: center;
+  border-bottom: 1px solid #374151;
+}
+
+.header h3 {
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+.nav {
+  flex-grow: 1;
+  padding: 0.5rem 0;
+}
+
+.link,
+.activeLink {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: #d1d5db;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.link:hover {
+  background-color: #374151;
+  color: #fff;
+}
+
+.activeLink {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: bold;
+}
+
+.footer {
+  padding: 0.5rem 0;
+  border-top: 1px solid #374151;
+  text-align: center;
+}

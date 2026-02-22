@@ -1,0 +1,138 @@
+.tableContainer {
+  overflow-x: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table th {
+  background-color: #f9fafb;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #6b7280;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.quoteCell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.quoteHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quoteBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.6rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background-color: #6b7280;
+  color: #fff;
+}
+
+.quotePrice {
+  font-weight: 600;
+  color: #111827;
+}
+
+.quoteComment {
+  line-height: 1.4;
+  color: #374151;
+  font-size: 0.85rem;
+}
+
+.mutedText {
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+.quote_requested {
+  background-color: #3b82f6;
+}
+
+.quote_quoted {
+  background-color: #0ea5e9;
+}
+
+.quote_accepted {
+  background-color: #16a34a;
+}
+
+.quote_declined {
+  background-color: #ef4444;
+}
+
+.quote_cancelled {
+  background-color: #9ca3af;
+}
+
+.statusSelect {
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  font-family: inherit;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
+.statusSelect:focus {
+  outline: 2px solid var(--accent-color);
+}
+
+.pending {
+  background-color: #f59e0b; /* Amber */
+}
+
+.confirmed {
+  background-color: #10b981; /* Emerald */
+}
+
+.completed {
+  background-color: #3b82f6; /* Blue */
+}
+
+.cancelled {
+  background-color: #6b7280; /* Gray */
+}
+
+.rescheduleButton {
+  background-color: #f59e0b; /* Orange/Amber */
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.8rem;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.rescheduleButton:hover {
+  background-color: #d97706; /* Darker Orange */
+}

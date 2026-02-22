@@ -1,0 +1,70 @@
+.container {
+  position: relative;
+  width: 100%;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: auto;
+}
+
+.title {
+  position: sticky;
+  top: 0;
+  left: 0;
+  color: var(--primary-color);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.error {
+  color: #d9534f;
+  text-align: center;
+  font-weight: bold;
+}
+
+.usersTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+
+.usersTable th,
+.usersTable td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.usersTable th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.usersTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.usersTable tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+.promoteButton {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.downgradeButton {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}

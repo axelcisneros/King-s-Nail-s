@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/KingsNails.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="King's Nails - Agenda tu cita, explora diseños y gestiona tu perfil" />
+    <meta name="author" content="Axel Cisneros, Azyadeth Cisneros" />
+    <meta name="keywords" content="html, css, javascript, react, vite, nail, uñas, manicura, salón" />
+
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="King's Nails" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/KingsNails2new.png" />
+
+    <title>King's Nails</title>
+    <style>
+      /* Ocultar barra de navegación al hacer scroll */
+      html {
+        overflow: hidden;
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: auto;
+        height: 100%;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-y: none;
+      }
+      /* Splash screen mientras carga */
+      #splash {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.3s ease-out;
+      }
+      #splash img {
+        width: 120px;
+        height: 120px;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.1); opacity: 0.8; }
+      }
+      #splash.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="splash">
+      <img src="/KingsNails.png" alt="King's Nails" />
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+.container {
+  width: 100%;
+  padding: 1rem;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #111827;
+}
+
+.form {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form h2 {
+  margin-bottom: 0.5rem;
+}
+
+.form input {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: inherit;
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.formActions button {
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  background-color: var(--primary-color);
+}
+
+.formActions button[type="button"] {
+  background-color: #6b7280;
+}
+
+.list h2 {
+  margin-bottom: 1rem;
+}
+
+.serviceItem {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.itemActions button {
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  background-color: #3b82f6;
+}
+
+.deleteButton {
+  background-color: #ef4444 !important;
+}

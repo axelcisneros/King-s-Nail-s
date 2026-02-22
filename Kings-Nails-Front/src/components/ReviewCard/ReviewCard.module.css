@@ -1,0 +1,40 @@
+.card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border-left: 5px solid var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.userName {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.stars {
+  display: flex;
+}
+
+.on, .off {
+  font-size: 1.2rem;
+}
+
+.on { color: #ffc107; }
+.off { color: #e0e0e0; }
+
+.comment {
+  font-style: italic;
+  color: #555 !important;
+  line-height: 1.5;
+  flex-grow: 1; /* Asegura que el comentario ocupe el espacio disponible */
+}

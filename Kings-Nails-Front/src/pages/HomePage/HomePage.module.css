@@ -1,0 +1,115 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.75rem;
+  background-color: var(--secondary-color);
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  /* Mantener el hero compacto para que quepa sin scroll */
+  min-height: calc(35vh - (var(--header-height) + var(--footer-height)) * 0.02);
+}
+
+.heroContent {
+  max-width: 700px;
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  color: var(--primary-color);
+  margin-bottom: 0.6rem;
+  line-height: 1.08;
+}
+
+.heroSubtitle {
+  font-size: clamp(0.9rem, 1.4vw, 1.0rem);
+  color: var(--text-color);
+  margin-bottom: 0.6rem;
+  /* Usamos una fuente más legible para párrafos largos */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  max-width: 70ch;
+}
+
+.emojiRow {
+  display: inline-block;
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+}
+
+.subtitleText {
+  display: inline-block;
+}
+
+.iconStrip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 0.75rem;
+}
+
+.iconSmall {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+  border-radius: 6px;
+}
+
+.iconDot {
+  color: rgba(0,0,0,0.15);
+  font-size: 1.2rem;
+}
+
+.heroButton {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 0.6rem 2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.heroButton:hover {
+  background-color: #e66c8b; /* Un tono de rosa un poco más oscuro */
+  transform: translateY(-3px);
+}
+
+/* Ajustes para pantallas muy anchas: reducir fuente del titulo para que no ocupe 2 lineas si cabe */
+@media (min-width: 1400px) {
+  .heroTitle {
+    font-size: clamp(2.4rem, 3vw, 3rem);
+  }
+}
+
+.reviewsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0.75rem;
+  background-color: var(--secondary-color);
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  /* Mantener el hero compacto para que quepa sin scroll */
+  min-height: calc(40vh - (var(--header-height) + var(--footer-height)) * 0.02);
+}

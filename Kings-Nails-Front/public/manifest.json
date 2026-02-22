@@ -1,0 +1,30 @@
+{
+  "name": "King's Nails - Salón de Uñas",
+  "short_name": "King's Nails",
+  "description": "Agenda tu cita, explora diseños y gestiona tu perfil en King's Nails",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "splash_pages": null,
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/KingsNailsnew.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/KingsNails2new.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["lifestyle", "beauty"],
+  "lang": "es",
+  "dir": "ltr"
+}

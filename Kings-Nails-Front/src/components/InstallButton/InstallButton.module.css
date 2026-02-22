@@ -1,0 +1,33 @@
+.installButton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  height: calc(var(--header-height) - 8px);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: calc(var(--header-height) / 2);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.installButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 3px 12px rgba(102, 126, 234, 0.5);
+}
+
+.installButton:active {
+  transform: scale(0.98);
+}
+
+.icon {
+  width: calc(var(--header-height) * 0.4);
+  height: calc(var(--header-height) * 0.4);
+  flex-shrink: 0;
+}

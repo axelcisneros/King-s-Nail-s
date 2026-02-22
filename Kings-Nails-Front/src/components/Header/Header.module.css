@@ -1,0 +1,194 @@
+.header {
+  background-color: var(--secondary-color);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: fixed; /* Fijar siempre visible */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1100;
+  max-width: var(--max-width);
+  height: var(--header-height);
+  display: flex;
+  margin: auto;
+  align-items: center;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  min-width: 0; /* Permite que el contenido se comprima */
+}
+
+.leftSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+/* Solo mostrar botones en móvil */
+@media (min-width: 768px) {
+  .actionButtons {
+    display: none;
+  }
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  flex-shrink: 1; /* Permite que se comprima si es necesario */
+  min-width: 0; /* Permite truncar el texto */
+}
+
+.logoImage {
+  height: calc(var(--header-height) - 10px); /* Ajusta esta altura según necesites */
+  width: 100%;
+}
+
+.logoText {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  font-weight: normal; /* La fuente 'Concert One' ya es bastante gruesa */
+  white-space: nowrap; /* No partir el texto */
+  overflow: hidden; /* Ocultar desbordamiento */
+  max-width: 200px; /* Limitar ancho máximo */
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-shrink: 0; /* La navegación no se comprime */
+}
+
+.navLink {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 1rem;
+  text-overflow: ellipsis; /* Mostrar ... si es muy largo */
+  white-space: nowrap; /* No partir el texto */
+  overflow: hidden; /* Ocultar desbordamiento */
+  transition: color 0.2s ease-in-out;
+}
+
+.navLink:hover {
+  color: var(--primary-color);
+}
+
+.logoutButton {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--accent-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.logoutButton:hover {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* Responsive para tablet y móvil */
+@media (max-width: 999px) {
+  .header {
+    padding: 0.5rem;
+    height: 60px !important; /* Fuerza la altura en tablet */
+  }
+
+  .logoImage {
+    height: 50px; /* Imagen más pequeña */
+  }
+
+  .logoText {
+    font-size: 1.4rem;
+  }
+
+  .nav {
+    gap: 0.8rem;
+  }
+
+  .navLink {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .logoutButton {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 0.25rem;
+    height: 45px !important; /* Fuerza la altura en móvil */
+  }
+
+  .logoImage {
+    height: 35px; /* Imagen aún más pequeña */
+  }
+
+  .logoText {
+    font-size: 1rem;
+    max-width: 120px; /* Ancho máximo más pequeño en móvil */
+  }
+
+  .nav {
+    gap: 0.25rem;
+  }
+
+  .navLink {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.25rem;
+  }
+
+  .logoutButton {
+    padding: 0.15rem 0.3rem;
+    font-size: 0.65rem;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .header {
+    padding: 0.2rem;
+    height: 40px !important;
+  }
+
+  .logoText {
+    font-size: 0.9rem;
+    max-width: 80px; /* Ancho aún más pequeño para dar más espacio */
+  }
+
+  .nav {
+    gap: 0.2rem;
+  }
+
+  .navLink {
+    font-size: 0.6rem;
+    max-width: 70px;
+    padding: 0.15rem 0.2rem;
+  }
+
+  .logoutButton {
+    padding: 0.1rem 0.2rem;
+    font-size: 0.6rem;
+  }
+}

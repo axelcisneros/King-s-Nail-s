@@ -1,0 +1,95 @@
+.layoutContainer {
+  position: relative;
+  display: flex;
+  height: 100vh;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.mainContent {
+  position: relative;
+  top: var(--header-height);
+  bottom: var(--footer-height);
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0;
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 0 1.5rem;
+  display: flex;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  flex-direction: column;
+}
+
+.outletWrapper {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Restaurar ancho y padding más amplio para la galería (como estaba originalmente) */
+.galleryFull {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Responsive para tablet y móvil */
+@media (max-width: 999px) {
+  .mainContent {
+    padding: 0.75rem;
+    height: calc(100vh - 105px) !important; /* 60px header + 45px footer */
+    max-height: calc(100vh - 105px) !important; /* Forzar altura máxima */
+    overflow-y: auto;
+  }
+
+  .outletWrapper {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .galleryFull {
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 0.5rem;
+    height: calc(100vh - 80px) !important; /* 45px header + 35px footer */
+    max-height: calc(100vh - 80px) !important;
+    overflow-y: auto;
+  }
+
+  .outletWrapper {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .galleryFull {
+    padding: 0.5rem;
+  }
+}
+
+/* Para orientación portrait en tablets - Asegurar scroll completo */
+@media (max-width: 999px) and (orientation: portrait) {
+  .layoutContainer {
+    height: 100vh !important;
+    overflow: hidden;
+  }
+
+  .mainContent {
+    height: calc(100vh - 105px) !important; /* 60px header + 45px footer */
+    max-height: calc(100vh - 105px) !important;
+    overflow-y: auto !important;
+    position: relative;
+  }
+
+  .outletWrapper {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0; /* Permite que flex funcione correctamente */
+  }
+}

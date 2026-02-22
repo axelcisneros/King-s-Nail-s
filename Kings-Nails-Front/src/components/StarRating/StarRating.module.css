@@ -1,0 +1,23 @@
+.starRating {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.starRating button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.on .star {
+  color: #ffc107; /* Amarillo/Dorado para estrella activa */
+  font-size: 2.5rem;
+}
+
+.off .star {
+  color: #ccc; /* Gris para estrella inactiva */
+  font-size: 2.5rem;
+}

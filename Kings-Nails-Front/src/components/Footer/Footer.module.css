@@ -1,0 +1,92 @@
+.footer {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  margin: auto;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  position: fixed; /* Mantener siempre visible */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--footer-height);
+  max-width: var(--max-width);
+  z-index: 1100; /* Aumentar z-index para estar por encima del contenido */
+}
+
+.footerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+.footerContent p {
+  margin: 0;
+  line-height: 1;
+}
+
+.footerContent ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  margin: 0.5rem;
+}
+
+.footerContent a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+.footerContent img {
+  width: 100% ;
+  height: 50px;
+}
+
+/* Responsive para tablet y móvil */
+@media (max-width: 999px) {
+  .footer {
+    height: 45px !important; /* Forzar altura reducida en tablet */
+  }
+
+  .footerContent {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+    height: 45px;
+    align-items: center;
+  }
+
+  .footerContent ul {
+    gap: 0.5rem;
+    margin: 0.2rem;
+  }
+
+  .footerContent img {
+    height: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    height: 35px !important; /* Forzar altura muy reducida en móvil */
+  }
+
+  .footerContent {
+    font-size: 0.85rem;
+    padding: 0 0.25rem;
+    height: 35px;
+    align-items: center;
+  }
+
+  .footerContent ul {
+    gap: 0.25rem;
+    margin: 0.1rem;
+  }
+
+  .footerContent img {
+    height: 22px;
+  }
+}

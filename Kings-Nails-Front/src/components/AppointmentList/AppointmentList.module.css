@@ -1,0 +1,11 @@
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.noAppointments {
+  text-align: center;
+  color: #777;
+  padding: 2rem;
+}

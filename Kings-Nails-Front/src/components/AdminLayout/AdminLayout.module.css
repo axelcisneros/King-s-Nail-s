@@ -1,0 +1,64 @@
+.layout {
+  display: flex;
+  min-height: calc(100vh - var(--header-height) - var(--footer-height));
+  position: relative;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 1rem;
+  background-color: transparent;
+  box-sizing: border-box;
+  height: calc(100vh - var(--header-height) - var(--footer-height));
+  overflow: auto; /* scroll interno si el contenido excede */
+  transition: margin-left 0.3s ease;
+}
+
+/* Responsive: ajustar contenido cuando sidebar está contraído */
+@media (max-width: 999px) {
+  .layout {
+    flex-direction: row; /* Mantener row para el sidebar */
+    height: calc(100vh - 105px) !important; /* 60px header + 45px footer = 105px */
+    max-height: calc(100vh - 105px) !important; /* Forzar altura máxima */
+    min-height: calc(100vh - 105px) !important; /* Forzar altura mínima también */
+  }
+
+  .content {
+    padding: 0.5rem;
+    height: 100%; /* Usa toda la altura del layout */
+    max-height: calc(100vh - 60px - 45px - 1rem); /* Restar padding */
+    flex: 1;
+    overflow-y: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout {
+    height: calc(100vh - 45px - 35px) !important; /* Altura fija para mostrar footer */
+    max-height: calc(100vh - 45px - 35px) !important; /* Forzar altura máxima */
+  }
+
+  .content {
+    padding: 0.25rem;
+    height: 100%; /* Usa toda la altura del layout */
+    max-height: calc(100vh - 45px - 35px - 0.5rem); /* Restar padding */
+    overflow-y: auto;
+  }
+}
+
+/* Para orientación portrait en tablets */
+@media (max-width: 999px) and (orientation: portrait) {
+  .layout {
+    height: calc(100vh - 60px - 45px); /* Altura fija para mostrar footer */
+    overflow: hidden;
+  }
+
+  .content {
+    height: 100%; /* Usa toda la altura del layout */
+    overflow-y: auto;
+    flex: 1;
+  }
+}

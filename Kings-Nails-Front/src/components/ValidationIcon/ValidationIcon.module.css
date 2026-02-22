@@ -1,0 +1,21 @@
+.spinner {
+  margin-left: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.errorContainer {
+  display: inline-flex;
+  align-items: center;
+}
+
+.error {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.ok {
+  margin-left: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
