@@ -7,10 +7,10 @@ const generateTokenAndSetCookie = (res, userId) => {
 
   res.cookie('jwt', token, {
     httpOnly: true, // Impide el acceso desde JavaScript en el cliente
-    // En desarrollo permitimos sameSite:'none' y secure:false para que el navegador envíe la cookie entre localhost:3000 <-> localhost:5000
-  secure: process.env.NODE_ENV === 'production', // true solo en producción
-  // Evitar que navegadores modernos rechacen la cookie en dev: usar 'lax' en desarrollo
-  sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
+    // En desarrollo permitimos sameSite:'lax' y secure:false para que el navegador envíe la cookie entre localhost:3000 <-> localhost:5000
+    secure: process.env.NODE_ENV === 'production', // true solo en producción
+    // Evitar que navegadores modernos rechacen la cookie cross-site en prod: usar 'none'
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
     maxAge: 30 * 24 * 60 * 60 * 1000, // 30 días en milisegundos
   });
 

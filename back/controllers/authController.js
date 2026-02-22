@@ -191,7 +191,8 @@ const googleAuthCallback = asyncHandler(async (req, res) => {
     const user = req.user;
     generateTokenAndSetCookie(res, user._id);
 
-    const frontendUrl = process.env.TUNNEL_FRONTEND_URL || process.env.FRONTEND_URL || 'http://localhost:3000';
+    // Usar la URL del frontend configurada en el entorno
+    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
 
     // Redirigimos al frontend a una página de éxito. El frontend se encargará
     // de obtener los datos del usuario desde el endpoint /profile.
@@ -223,7 +224,12 @@ const refreshToken = asyncHandler(async (req, res) => {
     const { accessToken } = require('../utils/generateTokens')(res, user._id);
     res.json({ user: { _id: user._id, name: user.name, email: user.email, role: user.role }, token: accessToken });
   } catch (err) {
-    res.cookie('refreshToken', '', { httpOnly: true, expires: new Date(0) });
+    res.cookie('refreshToken', '', { 
+      httpOnly: true, 
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
+      expires: new Date(0) 
+    });
     res.status(401);
     throw new Error('Refresh token invalid or expired');
   }
@@ -235,10 +241,14 @@ const refreshToken = asyncHandler(async (req, res) => {
 const logoutUser = (req, res) => {
   res.cookie('jwt', '', {
     httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
     expires: new Date(0),
   });
   res.cookie('refreshToken', '', {
     httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
     expires: new Date(0),
   });
   const { logInfo } = require('../utils/logger');
@@ -263,7 +273,9 @@ module.exports = {
     if (req.user) {
       const user = req.user;
       generateTokenAndSetCookie(res, user._id);
-      const frontendUrl = process.env.TUNNEL_FRONTEND_URL || process.env.FRONTEND_URL || 'http://localhost:3000';
+      
+      // Usar la URL del frontend configurada en el entorno
+      const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
 
       // Redirigimos al frontend a una página de éxito.
       res.redirect(`${frontendUrl}/login-success`);

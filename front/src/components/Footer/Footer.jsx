@@ -9,7 +9,7 @@ const Footer = () => {
   return (
         <footer className={styles.footer}>
             <div className={styles.footerContent}>
-                <p>&copy; {currentYear} Kings Nails. Todos los derechos reservados.</p>
+                <p>&copy; {currentYear} Kings Nails. Todos los derechos reservados. <Link to="/terminos">Términos y Condiciones</Link> | <Link to="/privacidad">Política de Privacidad</Link></p>
                 <ul>
                     <li>
                         <Link
